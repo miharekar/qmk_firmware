@@ -43,10 +43,6 @@ enum planck_keycodes {
 #define RAISE MO(_RAISE)
 #define EURO LALT(LSFT(KC_2)) // €
 #define PSCR LGUI(LSFT(KC_4)) // Screenshot
-#define CMD3 LGUI(KC_3) // Cmd + 3
-#define CMD5 LGUI(KC_5) // Cmd + 5
-#define CMD0 LGUI(KC_0) // Cmd + 0
-#define UNDO LGUI(KC_Z) // Cmd + Z
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -70,20 +66,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Photo Editing
  * ,-----------------------------------------------------------------------------------.
- * | Esc  |Cmd+Z |Cmd+0 |Cmd+3 |Cmd+5 |  \   |      |      |      |      |      | Bksp |
+ * | Esc  |Cmd+Z |Opt+0 |Opt+3 |Opt+5 |      |      |      |      |      |      | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Tab  |      |      |      |      |      |      |      |      |      |      |      |
+ * | Tab  |   P  |   S  | Sh+S | Sh+H |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Shift|      |      |      |      |      |      |      |      |      |      |Enter |
+ * | Shift|      |      |   U  |   O  |      |      |      |      |      |      |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | F16  | Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_PHOTOED] = LAYOUT_planck_grid(
-    KC_ESC,  UNDO,    CMD0,    CMD3,    CMD5,    KC_BSLS, _______, _______, _______, _______, _______, KC_BSPC,
-    KC_TAB,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_ENT ,
-    KC_F16,  KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_ESC,  LGUI(KC_Z),  LOPT(KC_0), LOPT(KC_3), LOPT(KC_5), _______, _______, _______, _______, _______, _______, KC_BSPC,
+    KC_TAB,  KC_P,        KC_S,       LSFT(KC_S), LSFT(KC_H), _______, _______, _______, _______, _______, _______, _______,
+    KC_LSFT, _______,     _______,    KC_U,       KC_O,       _______, _______, _______, _______, _______, _______, KC_ENT ,
+    KC_F16,  KC_LCTL,     KC_LALT,    KC_LGUI,    LOWER,      KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Colemak
