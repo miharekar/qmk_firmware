@@ -17,7 +17,6 @@
 #include QMK_KEYBOARD_H
 #include "muse.h"
 
-
 enum planck_layers {
   _QWERTY,
   _PHOTOED,
@@ -206,13 +205,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-        print("mode just switched to qwerty and this is a huge string\n");
+        backlight_disable();
         set_single_persistent_default_layer(_QWERTY);
       }
       return false;
       break;
     case PHOTOED:
       if (record->event.pressed) {
+        backlight_level(1);
         set_single_persistent_default_layer(_PHOTOED);
       }
       return false;
